@@ -12,13 +12,13 @@ html, body {
 }
 
 body {
-    color: #bfbfbf;
+    color: peachpuff;
     background: black;
     font-family: 'Futura-Medium', 'Futura', 'Trebuchet MS', sans-serif;
 }
 
 h1 {
-    color: white;
+    color: peru;
 }
 
 .titreBillet {
@@ -40,4 +40,13 @@ h1 {
 
 #titreBlog, #piedBlog {
     text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: peachpuff;
 }
