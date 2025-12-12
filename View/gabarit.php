@@ -14,7 +14,7 @@
 
 				<!-- Header -->
 					<header id="header" class="alt">
-						<span class="logo"><img src="images/logo.svg" alt="" /></span>
+						<span class="logo"><img src="images/ensat_logo.png" alt="" /></span>
 						<a href="index.php"><h1>Mon Blog</h1></a>
 						<p>Je vous souhaite la bienvenue sur ce modeste blog.</p>
 					</header>

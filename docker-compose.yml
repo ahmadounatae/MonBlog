@@ -1,0 +1,40 @@
+services:
+  php:
+    build: .
+    container_name: monblog_php
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - db
+    env_file:
+      - .env
+
+  db:
+    image: mysql:8.0
+    container_name: monblog_db
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./Database/MonBlog.sql:/docker-entrypoint-initdb.d/MonBlog.sql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: monblog_phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: monblog
+      PMA_PASSWORD: monblog123
+    depends_on:
+      - db
+
+volumes:
+  db_data:
