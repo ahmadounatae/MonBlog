@@ -1,11 +1,11 @@
 services:
   php:
-    build: .
+    build: ./php
     container_name: monblog_php
     ports:
-      - "8000:80"
+      - "8080:80"
     volumes:
-      - ./:/var/www/html
+      - ./php:/var/www/html
     depends_on:
       - db
     env_file:
@@ -28,7 +28,7 @@ services:
     container_name: monblog_phpmyadmin
     restart: always
     ports:
-      - "8080:80"
+      - "8088:80"
     environment:
       PMA_HOST: db
       PMA_USER: monblog

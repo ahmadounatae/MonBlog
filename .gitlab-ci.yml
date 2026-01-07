@@ -1,0 +1,27 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+variables:
+  DOCKER_TLS_CERTDIR: ""
+  IMAGE_NAME: monblog
+
+stages:
+  - build
+  - test
+
+before_script:
+  - docker info
+
+build:
+  stage: build
+  script:
+    - docker build -t $IMAGE_NAME .
+
+php-lint:
+  stage: test
+  script:
+    - docker build -t $IMAGE_NAME .
+    - docker run --rm $IMAGE_NAME php -l index.php
+    - docker run --rm $IMAGE_NAME find php -name "*.php" -exec php -l {} \;
